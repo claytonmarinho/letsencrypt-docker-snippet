@@ -25,7 +25,7 @@ if [ $NGINX_CHECK ]; then
 fi
 
 #running container
-docker run -d -p 80:80 -p 443:80 \
+docker run -d -p 80:80 -p 443:443 \
     --name $NGINX_CONTAINER \
     --restart always \
     -v $DATA_PATH/conf.d:/etc/nginx/conf.d  \
