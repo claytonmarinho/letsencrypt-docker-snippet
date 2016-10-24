@@ -11,6 +11,7 @@ docker run -d -p 80:80 -p 443:443 \
 
 docker run -d \
     --name nginx-gen \
+    --restart always \
     --volumes-from nginx \
     -v ./nginx.tmpl:/etc/docker-gen/templates/nginx.tmpl:ro \
     -v /var/run/docker.sock:/tmp/docker.sock:ro \
