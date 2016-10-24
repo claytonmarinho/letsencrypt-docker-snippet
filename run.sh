@@ -5,7 +5,7 @@
 #
 
 DATA_PATH="$HOME/.nginxdata"; #default place to save container data
-NGINX_CONTAINER='nginx';
+NGINX_CONTAINER='nginx-base';
 NGINX_GEN_CONTAINER='nginx-gen';
 NGINX_LETSENCRYPT_CONTAINER='nginx-letsencrypt';
 
@@ -21,7 +21,7 @@ curl https://raw.githubusercontent.com/jwilder/nginx-proxy/master/nginx.tmpl > $
 NGINX_CHECK=$(docker ps --filter="name=$NGINX_CONTAINER" -q -a);
 
 if [ $NGINX_CHECK ]; then
-  docker rm -f $NGINX_CHECK
+  docker rm -f $NGINX_CONTAINER
 fi
 
 #running container
