@@ -25,6 +25,6 @@ docker run -d \
     --restart always \
     -e "NGINX_DOCKER_GEN_CONTAINER=nginx-gen" \
     --volumes-from nginx \
-    -v $DATA_PATH/:/etc/nginx/certs:rw \
+    -v $DATA_PATH/certs:/etc/nginx/certs:rw \
     -v /var/run/docker.sock:/var/run/docker.sock:ro \
     jrcs/letsencrypt-nginx-proxy-companion
