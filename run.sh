@@ -34,7 +34,7 @@ docker run -d -p 80:80 -p 443:443 \
     -v $DATA_PATH/vhost.d:/etc/nginx/vhost.d \
     -v $DATA_PATH/html:/usr/share/nginx/html \
     -v /var/run/docker.sock:/tmp/docker.sock:ro \
-    nginx-proxy
+    jwilder/nginx-proxy
 
 #
 # NGINX-GEN CONTAINER
