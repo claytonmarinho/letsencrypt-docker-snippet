@@ -7,7 +7,7 @@
 DATA_PATH="$HOME/.nginxdata"; #default place to save container data
 NGINX_CONTAINER='nginx-proxy';
 #NGINX_GEN_CONTAINER='nginx-gen';
-#NGINX_LETSENCRYPT_CONTAINER='nginx-letsencrypt';
+NGINX_LETSENCRYPT_CONTAINER='nginx-letsencrypt';
 
 
 mkdir $DATA_PATH;
