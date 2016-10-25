@@ -10,6 +10,8 @@ NGINX_GEN_CONTAINER='nginx-gen';
 NGINX_LETSENCRYPT_CONTAINER='nginx-letsencrypt';
 
 
+mkdir $DATA_PATH;
+
 #getting the latest nginx.tmpl
 curl https://raw.githubusercontent.com/jwilder/nginx-proxy/master/nginx.tmpl > $DATA_PATH/nginx.tmpl
 
