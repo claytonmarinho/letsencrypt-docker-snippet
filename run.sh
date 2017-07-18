@@ -47,6 +47,7 @@ docker run -d \
     --name $NGINX_LETSENCRYPT_CONTAINER \
     --restart always \
     --volumes-from $NGINX_CONTAINER \
+    -e "DEBUG=TRUE" \
     -v $DATA_PATH/certs:/etc/nginx/certs:rw \
     -v /var/run/docker.sock:/var/run/docker.sock:ro \
     jrcs/letsencrypt-nginx-proxy-companion
