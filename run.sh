@@ -1,5 +1,3 @@
-#/bin/bash
-
 #
 # SETUP
 #
@@ -7,6 +5,10 @@
 DATA_PATH="$HOME/.nginxdata"; #default place to save container data
 NGINX_CONTAINER='nginx-proxy';
 NGINX_LETSENCRYPT_CONTAINER='nginx-letsencrypt';
+
+docker volume create nginx-certs
+docker volume create nginx-html
+docker volume create nginx-vhost
 
 mkdir $DATA_PATH;
 
@@ -25,10 +27,11 @@ fi
 docker run -d -p 80:80 -p 443:443 \
     --name $NGINX_CONTAINER \
     --restart always \
-    -v $DATA_PATH/certs:/etc/nginx/certs:ro \
-    -v $DATA_PATH/vhost.d:/etc/nginx/vhost.d \
-    -v $DATA_PATH/html:/usr/share/nginx/html \
+    -v nginx-certs:/etc/nginx/certs:ro \
+    -v nginx-vhost:/etc/nginx/vhost.d \
+    -v nginx-html:/usr/share/nginx/html \
     -v /var/run/docker.sock:/tmp/docker.sock:ro \
+    -v ./conf.d:/etc/nginx/conf.d
     jwilder/nginx-proxy
 
 #
@@ -48,6 +51,6 @@ docker run -d \
     --restart always \
     --volumes-from $NGINX_CONTAINER \
     -e "DEBUG=TRUE" \
-    -v $DATA_PATH/certs:/etc/nginx/certs:rw \
+    -v nginx-certs:/etc/nginx/certs:rw \
     -v /var/run/docker.sock:/var/run/docker.sock:ro \
     jrcs/letsencrypt-nginx-proxy-companion
