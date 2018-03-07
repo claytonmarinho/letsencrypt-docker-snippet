@@ -31,7 +31,7 @@ docker run -d -p 80:80 -p 443:443 \
     -v nginx-vhost:/etc/nginx/vhost.d \
     -v nginx-html:/usr/share/nginx/html \
     -v /var/run/docker.sock:/tmp/docker.sock:ro \
-    -v ./conf.d:/etc/nginx/conf.d \
+    -v $PWD/proxy_settings.conf:/etc/nginx/conf.d/proxy_settings.conf:ro \
     jwilder/nginx-proxy
 
 #
