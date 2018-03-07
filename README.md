@@ -1,7 +1,9 @@
 # letsencrypt-docker-snippet
-Boilerplate for automatic certificate w/multiple domains
+Nginx proxy + Let's Encrypt 
 
-Type ./run.sh
+- Override nginx default settings in [proxy-settings.conf](./conf.d/proxy-settings.conf)
 
-*** read more ***
-https://github.com/JrCs/docker-letsencrypt-nginx-proxy-companion
+## Installing 
+- git clone https://github.com/claytonmarinho/letsencrypt-docker-snippet.git
+- cd /letsencrypt-docker-snippet
+- bash run.sh
