@@ -1,8 +1,9 @@
+#!/bin/bash
+
 #
 # SETUP
 #
 
-DATA_PATH="$HOME/.nginxdata"; #default place to save container data
 NGINX_CONTAINER='nginx-proxy';
 NGINX_LETSENCRYPT_CONTAINER='nginx-letsencrypt';
 
@@ -10,7 +11,6 @@ docker volume create nginx-certs
 docker volume create nginx-html
 docker volume create nginx-vhost
 
-mkdir $DATA_PATH;
 
 #
 # NGINX CONTAINER
